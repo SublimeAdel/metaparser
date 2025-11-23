@@ -1,7 +1,7 @@
 {
   "name": "@sublimeadel/metaparser",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "A lightweight, robust, and framework-agnostic HTML metadata parser for Node.js and the browser. Designed to extract Open Graph, Twitter Cards, and standard metadata with strict validation support.",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -10,8 +10,20 @@
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "metadata",
+    "parser",
+    "opengraph",
+    "og",
+    "twitter-cards",
+    "seo",
+    "html",
+    "metatags",
+    "scraper",
+    "cheerio",
+    "typescript"
+  ],
+  "author": "Mohammed Adel mohammedadelomar11@gmail.com",
   "license": "MIT",
   "type": "commonjs",
   "devDependencies": {
@@ -23,5 +35,13 @@
   },
   "dependencies": {
     "cheerio": "^1.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SublimeAdel/metaparser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SublimeAdel/metaparser/issues"
+  },
+  "homepage": "https://github.com/SublimeAdel/metaparser#readme"
 }
