@@ -8,7 +8,7 @@ export * from './extractors/base';
 
 // Convenience function
 export async function parseUrl(url: string, options: ParserOptions = {}): Promise<MetadataResult> {
-    const html = await fetchHtml(url);
+    const html = await fetchHtml(url, options.requestOptions);
     const parser = new Metaparser();
     const result = parser.parse(html, options);
     result.url = url;

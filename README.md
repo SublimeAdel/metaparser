@@ -17,11 +17,11 @@ A lightweight, robust, and framework-agnostic HTML metadata parser for Node.js a
 ## Installation
 
 ```bash
-npm install metaparser
+npm install @sublimeadel/metaparser
 # or
-yarn add metaparser
+yarn add @sublimeadel/metaparser
 # or
-pnpm add metaparser
+pnpm add @sublimeadel/metaparser
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ pnpm add metaparser
 Fetch and parse a URL directly:
 
 ```typescript
-import { parseUrl } from 'metaparser';
+import { parseUrl } from '@sublimeadel/metaparser';
 
 async function main() {
   const result = await parseUrl('https://example.com');
@@ -47,7 +47,7 @@ async function main() {
 If you already have the HTML content (e.g., from a headless browser or file):
 
 ```typescript
-import { parseHtml } from 'metaparser';
+import { parseHtml } from '@sublimeadel/metaparser';
 
 const html = `
   <html>
@@ -87,6 +87,15 @@ if (result.missing.length > 0) {
 
 Fetches the HTML from the given URL and parses it.
 
+```typescript
+const result = await parseUrl('https://example.com', {
+  requestOptions: {
+    timeout: 10000,
+    headers: { 'User-Agent': 'Googlebot/2.1' }
+  }
+});
+```
+
 ### `parseHtml(html: string, options?: ParserOptions): MetadataResult`
 
 Parses a raw HTML string.
@@ -94,9 +103,10 @@ Parses a raw HTML string.
 ### `ParserOptions`
 
 | Option | Type | Description |
-| matches | --- | --- |
+| --- | --- | --- |
 | `requiredTags` | `string[]` | List of tags to validate presence for (e.g. `['og:title']`). |
-| `fetchFavicon` | `boolean` | (Planned) Attempt to fetch favicon if not found. |
+| `fetchFavicon` | `boolean` | Attempt to fetch favicon if not explicitly defined in meta. |
+| `requestOptions` | `FetchOptions` | Options for the fetch request (timeout, headers, etc). |
 
 ### `MetadataResult`
 
@@ -109,6 +119,7 @@ interface MetadataResult {
   
   og: Record<string, string>;      // Open Graph tags (without 'og:' prefix)
   twitter: Record<string, string>; // Twitter tags (without 'twitter:' prefix)
+  jsonld?: any[];                  // Arrays of extracted JSON-LD objects
   
   tags: Metatag[];                 // All raw extracted tags
   missing: string[];               // List of required tags that were not found

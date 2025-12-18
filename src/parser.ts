@@ -5,6 +5,7 @@ import { OpenGraphExtractor } from './extractors/og';
 import { BasicMetadataExtractor } from './extractors/basic';
 
 import { TwitterExtractor } from './extractors/twitter';
+import { JsonLDExtractor } from './extractors/json-ld';
 
 export class Metaparser {
     private extractors: MetadataExtractor[];
@@ -14,6 +15,7 @@ export class Metaparser {
             new BasicMetadataExtractor(),
             new OpenGraphExtractor(),
             new TwitterExtractor(),
+            new JsonLDExtractor(),
             // Add more extractors here
         ];
     }
