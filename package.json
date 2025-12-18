@@ -1,6 +1,6 @@
 {
   "name": "@sublimeadel/metaparser",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight, robust, and framework-agnostic HTML metadata parser for Node.js and the browser. Designed to extract Open Graph, Twitter Cards, and standard metadata with strict validation support.",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
