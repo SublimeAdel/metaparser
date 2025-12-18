@@ -5,7 +5,7 @@ import { MetadataResult } from '../types';
 export class BasicMetadataExtractor extends MetadataExtractor {
     extract($: CheerioAPI, result: MetadataResult): void {
         // Title
-        const title = $('title').text() || $('meta[name="title"]').attr('content');
+        const title = $('head > title').first().text() || $('title').first().text() || $('meta[name="title"]').attr('content');
         if (title) {
             result.title = title;
             result.tags.push({ tag: 'title', value: title });
